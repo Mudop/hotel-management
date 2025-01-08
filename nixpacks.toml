@@ -1,0 +1,7 @@
+[phases.setup]
+nixPkgs = [
+  "php81",                # Usar PHP 8.1
+  "php81Packages.composer", # Composer para las dependencias de Laravel
+  "nodejs_18",            # Node.js 18 (para compilar los assets de Laravel)
+  "npm-9_x"               # NPM para las dependencias de JavaScript
+]
