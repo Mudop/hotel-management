@@ -10,24 +10,40 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+        <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                @yield('header', 'Encabezado Predeterminado')
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
+    </head>
+    <body class="font-sans antialiased bg-gray-100">
+        <div class="min-h-screen flex flex-col">
+            <!-- Header -->
+            <header class="w-full bg-gradient-to-r from-decameronBlue to-decameronGold text-white py-4 shadow-lg">
+                <div class="container mx-auto px-4 flex justify-between items-center">
+                    <h1 class="text-2xl font-bold uppercase tracking-widest">
+                        Decameron Admin
+                    </h1>
+                    <nav class="flex space-x-6">
+                        <a href="{{ route('hotels.index') }}" class="hover:text-gray-100 hover:underline">
+                            Gestión de Hoteles
+                        </a>
+                        <a href="{{ route('accommodations.index') }}" class="hover:text-gray-100 hover:underline">
+                            Gestión de Acomodaciones
+                        </a>
+                    </nav>
                 </div>
             </header>
 
             <!-- Page Content -->
-            <main>
-            @yield('content')
+            <main class="container mx-auto px-4 mt-8 flex-1">
+                @yield('content')
             </main>
+
+            <!-- Footer -->
+            <footer class="w-full bg-gray-800 text-gray-300 py-4 text-center">
+                &copy; {{ date('Y') }} Decameron Admin. Todos los derechos reservados.
+            </footer>
         </div>
     </body>
 </html>
